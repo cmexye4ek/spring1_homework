@@ -29,4 +29,16 @@ public class ProductController {
     public void addNewProduct (@RequestBody Product product) {
         productService.addNewProduct(product);
     }
+
+    @PostMapping(value = "/increase_cost")
+    @ResponseBody
+    public void increaseCostByOne (@RequestBody Product product) {
+        productService.increaseCostByOne(product);
+    }
+
+    @PostMapping(value = "/decrease_cost")
+    @ResponseBody
+    public void decreaseCostByOne (@RequestBody Product product) {
+        productService.decreaseCostByOne(product);
+    }
 }

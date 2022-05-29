@@ -33,8 +33,15 @@ public class ProductService {
         System.out.println();
     }
 
-    public void addNewProduct (Product product) {
+    public void addNewProduct(Product product) {
         productRepository.addNewProduct(product);
     }
 
+    public void increaseCostByOne(Product product) {
+        productRepository.getProductList().stream().filter(s -> s.getId().equals(product.getId())).findFirst().get().setCost(product.getCost() + 1);
+    }
+
+    public void decreaseCostByOne(Product product) {
+        productRepository.getProductList().stream().filter(s -> s.getId().equals(product.getId())).findFirst().get().setCost(product.getCost() - 1);
+    }
 }
