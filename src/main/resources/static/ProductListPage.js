@@ -16,4 +16,10 @@ angular.module('productList', []).controller('productListController', function($
           $scope.getProductListPage()
           });
       };
+      $scope.deleteProduct = function (product) {
+              $scope.product = {}
+                $http.post('http://localhost:8189/app/products/delete_product', product).then(function (response) {
+                $scope.getProductListPage()
+                });
+            };
 });
